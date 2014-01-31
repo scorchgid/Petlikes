@@ -9,50 +9,94 @@
  */
 package uk.ac.kingston.ci5100.petlikes_pair4.model;
 
-public class PetStoreInformation {
-    
-    private String name;
-//    private String[] address;
-    private String addressLine1;
-    private String addressLine2;
-    private String addressLine3;
-    private String addressLine4;
-    private String postcode;
-    private String addressLine6;
+public class PetStoreInformation 
+{    
+    private String shopName;
+    private String rawAddress;
     private String phoneNumbers;
     private String website;
-    private String openingtimes;
+    private String openCloseTime;
+    
+    //Address splitting
+    private String[] arrayAddress;
+    private String addressFirstLine; 
+    private String addressCounty;
+    private String addressPostcode;
+    private String addressCountry;
+    
+    //Phone Num to an Integer
+    private Integer phoneNumbersNum;
+    
+    
+    //---Primary Methods---
+    public String[] splitRawTest (String input)
+    {
+        String[] a = input.split(",");    
+        return a;
+    }
+
+    public void giveStringToAt(String[] c)
+    {
+        setShopName(c[0]);
+        setRawAddress(c[1]);
+        setPhoneNumbers(c[2]);
+        setWebsite(c[3]);
+        setOpenCloseTime(c[4]);
+    }
+
+    /**
+     * Convert an array of Strings into one String
+     * @param a target array of Strings
+     * @return single String comprised of all the array elements separated by spaces
+     */
+    
+    
+    //String[] addr = rawAddress.split(":");
+    //(java.lang.String[]) [, a, b, c, d, e, f];    
+    
+    
+//---GetandSetters---
+    
+    /**
+     * 
+     * @return shopName as String
+     */
+    public String getShopName() {
+        return shopName;
+    }
 
     /**
      * 
-     * @return address as array of Strings
+     * @param shopName new value of name
      */
-    
-    public String[] getAddress() {
-        return address;
+    public void setShopName(String shopName) {
+        this.shopName = shopName;
     }
 
+    /**
+     * gets the rawAddress
+     * @return rawAddress as String
+     */
+    public String getRawAddress() {
+        return rawAddress;
+    }  
     
     /**
-     * sets address
-     * @param address as String array
+     * sets the rawAddress
+     * @param rawAddress a string containing AddressLine1
      */
-    public void setAddress(String[] address) {
-        this.address = address;
+    public void setRawAddress(String rawAddress) {
+        this.rawAddress = rawAddress;
     }
-
     
     /**
      *
      * @return phoneNumbers as String
-     */
-    
-    
+     */ 
     public String getPhoneNumbers() {
         return phoneNumbers;
     }
 
-    
     /**
      * 
      * @param phoneNumbers String containing phoneNumbers
@@ -60,7 +104,6 @@ public class PetStoreInformation {
     public void setPhoneNumbers(String phoneNumbers) {
         this.phoneNumbers = phoneNumbers;
     }
-
     
     /**
      * 
@@ -70,157 +113,92 @@ public class PetStoreInformation {
         return website;
     }
     
-/**
- * 
- * @param website String containing website
- */
+    /**
+     * 
+     * @param website String containing website
+     */
     public void setWebsite(String website) {
         this.website = website;
     }
 
     /**
      * 
-     * @return openingtimes as String
+     * @return openCloseTime as String
      */
-    public String getOpeningtimes() {
-        return openingtimes;
-    }
-    /**
-     * sets the openingtimes
-     * @param openingtimes String containing openingtimes
-     */
-    public void setOpeningtimes(String openingtimes) {
-        this.openingtimes = openingtimes;
-    }
-       
-        
-        /**
-         * Convert an array of Strings into one String
-         * @param a target array of Strings
-         * @return single String comprised of all the array elements separated by spaces
-         */
-    
-    
-    String[] addr = address.split(":");
-    (java.lang.String[]) [, a, b, c, d, e, f];
-
-                 
-    private String[] getStringAsArray(String s)
-        {
-            String[] result = s.split(":");
-            return result;
-        }
-
-    
-    
-    /**
-     * 
-     * @return name as String
-     */
-    public String getName() {
-        return name;
-    }
-
-    /**
-     * 
-     * @param name new value of name
-     */
-    public void setName(String name) {
-        this.name = name;
+    public String getOpenCloseTimes() {
+        return openCloseTime;
     }
     
     /**
-     * gets the addressLine1
-     * @return addressLine1 as String
+     * sets the openCloseTime
+     * @param openCloseTime String containing openCloseTime
      */
-    public String getAddressLine1() {
-        return addressLine1;
-    }
+    public void setOpenCloseTime(String openCloseTime) {
+        this.openCloseTime = openCloseTime;
+    }  
+    
+    //---Get and Set for Splitted Address---
     /**
-     * sets the addressLine1
-     * @param addressLine1 a string containing AddressLine1
+     * gets the addressFirstLine
+     * @return addressFirstLine as String
      */
-    public void setAddressLine1(String addressLine1) {
-        this.addressLine1 = addressLine1;
+    public String getAddressFirstLine() {
+        return addressFirstLine;
     }
 
     /**
-     * gets the addressLine2
-     * @return addressLine2 as String
+     * sets the addressFirstLine
+     * @param addressFirstLine a string containing addressFirstLine
      */
-    public String getAddressLine2() {
-        return addressLine2;
+    public void setAddressFirstLine(String addressFirstLine) {
+        this.addressFirstLine = addressFirstLine;
     }
 
     /**
-     * sets the addressLine2
-     * @param addressLine2 a string containing AddressLine1
+     * gets the addressCounty
+     * @return addressCounty as String
      */
-    public void setAddressLine2(String addressLine2) {
-        this.addressLine2 = addressLine2;
+    public String getAddressCounty() {
+        return addressCounty;
     }
 
     /**
-     * gets the addressLine3
-     * @return addressLine3 as String
+     * sets the addressCounty
+     * @param addressCounty a string containing AddressCounty
      */
-    public String getAddressLine3() {
-        return addressLine3;
+    public void setAddressCounty(String addressCounty) {
+        this.addressCounty = addressCounty;
     }
 
     /**
-     * sets the addressLine1
-     * @param addressLine1 a string containing AddressLine1
+     * gets the addressCountry
+     * @return addressCountry as String
      */
-    public void setAddressLine3(String addressLine3) {
-        this.addressLine3 = addressLine3;
+    public String getAddressCountry() {
+        return addressCountry;
     }
 
     /**
-     * gets the addressLine4
-     * @return addressLine4 as String
+     * sets the addressCountry
+     * @param addressCountry a string containing AddressCountry
      */
-    public String getAddressLine4() {
-        return addressLine4;
+    public void setAddressCountry(String addressCountry) {
+        this.addressCountry = addressCountry;
     }
 
     /**
-     * sets the addressLine4
-     * @param addressLine4 a string containing AddressLine1
+     * gets the AddressPostcode
+     * @return AddressPostcode as String
      */
-    public void setAddressLine4(String addressLine4) {
-        this.addressLine4 = addressLine4;
-    }
-
-/**
-     * gets the postcode
-     * @return postcode as String
-     */
-    public String getPostcode() {
-        return postcode;
+    public String getAddressPostcode() {
+        return addressPostcode;
     }
 
     /**
-     * sets the postcode
-     * @param postcode a string containing AddressLine1
+     * sets the addressPostcode
+     * @param addressPostcode a string containing AddressLine1
      */
-    public void setPostcode(String postcode) {
-        this.postcode = postcode;
+    public void setAddressPostcode(String addressPostcode) {
+        this.addressPostcode = addressPostcode;
     }   
-     
-/**
-     * gets the addressLine6
-     * @return addressLine6 as String
-     */
-    public String getAddressLine6() {
-        return addressLine6;
-    }
-    
-    /**
-     * sets the addressLine6
-     * @param addressLine6 a string containing AddressLine1
-     */
-    public void setAddressLine6(String addressLine6) {
-        this.addressLine6 = addressLine6;
-    }
 }
