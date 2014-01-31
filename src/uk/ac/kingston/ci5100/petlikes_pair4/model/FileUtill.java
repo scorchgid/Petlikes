@@ -4,26 +4,29 @@
  */
 package uk.ac.kingston.ci5100.petlikes_pair4.model;
 import java.io.BufferedReader;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
 /**
  *
  * @author Scorchgid
  */
-public class FileUtill {
-    
-    //FileReader doge = null;
-    public BufferedReader doge = null;
-    
-    FileUtill()
+public class FileUtill 
+{   
+    void FileRead ()throws FileNotFoundException, IOException
     {
-        try
-        {
-            doge = new BufferedReader(new FileReader("petStoreRawDinosaur.csv"));     
-        }
-        catch (IOException ex)
-        {
-            ex.printStackTrace();
-        }
+            BufferedReader row = new BufferedReader(new FileReader("petStoreDinosaur.csv"));
+            
+            while(row <  ++)
+            {
+                ArrayList<String> a = new ArrayList<String>;
+                a.add(row.readLine() String );
+                
+                        
+                
+            }        
     }
+    
+    
 }
