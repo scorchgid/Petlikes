@@ -9,32 +9,38 @@
  */
 package uk.ac.kingston.ci5100.petlikes_pair4.model;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.ArrayList;
 public class PetStoreInformation 
 {    
-    private String shopName;
-    private String rawAddress;
-    private String phoneNumbers;
-    private String website;
-    private String openCloseTime;
-    
-    //Address splitting
-    private String[] arrayAddress;
-    private String addressFirstLine; 
-    private String addressCounty;
-    private String addressPostcode;
-    private String addressCountry;
-    
-    //Phone Num to an Integer
-    private Integer phoneNumbersNum;
-    
-    
+        
+    public void importCSV () throws FileNotFoundException, IOException
+    {
+        FileUtill ing = new FileUtill();
+        ArrayList<String> rawList = ing.FileRead();
+        {
+            for (int i = 0; i<rawList.size(); i++)
+            {
+                IndividualPetStore Store = new IndividualPetStore();
+                String m = rawList.get(i);
+                String[] list = splitRawTest(m);
+
+                this.shopName = list[0];
+                this.rawAddress = list[1];
+                this.phoneNumbers = list[2];
+                this.website = list[3];
+                this.openCloseTime = list[4];
+
+            }
+        }
+    }    
     //---Primary Methods---
     public String[] splitRawTest (String input)
     {
         String[] a = input.split(",");    
         return a;
     }
-
     public void giveStringToAt(String[] c)
     {
         setShopName(c[0]);
@@ -43,7 +49,6 @@ public class PetStoreInformation
         setWebsite(c[3]);
         setOpenCloseTime(c[4]);
     }
-
     /**
      * Convert an array of Strings into one String
      * @param a target array of Strings
@@ -55,150 +60,5 @@ public class PetStoreInformation
     //(java.lang.String[]) [, a, b, c, d, e, f];    
     
     
-//---GetandSetters---
-    
-    /**
-     * 
-     * @return shopName as String
-     */
-    public String getShopName() {
-        return shopName;
-    }
 
-    /**
-     * 
-     * @param shopName new value of name
-     */
-    public void setShopName(String shopName) {
-        this.shopName = shopName;
-    }
-
-    /**
-     * gets the rawAddress
-     * @return rawAddress as String
-     */
-    public String getRawAddress() {
-        return rawAddress;
-    }  
-    
-    /**
-     * sets the rawAddress
-     * @param rawAddress a string containing AddressLine1
-     */
-    public void setRawAddress(String rawAddress) {
-        this.rawAddress = rawAddress;
-    }
-    
-    /**
-     *
-     * @return phoneNumbers as String
-     */ 
-    public String getPhoneNumbers() {
-        return phoneNumbers;
-    }
-
-    /**
-     * 
-     * @param phoneNumbers String containing phoneNumbers
-     */
-    public void setPhoneNumbers(String phoneNumbers) {
-        this.phoneNumbers = phoneNumbers;
-    }
-    
-    /**
-     * 
-     * @return website as String
-     */
-    public String getWebsite() {
-        return website;
-    }
-    
-    /**
-     * 
-     * @param website String containing website
-     */
-    public void setWebsite(String website) {
-        this.website = website;
-    }
-
-    /**
-     * 
-     * @return openCloseTime as String
-     */
-    public String getOpenCloseTimes() {
-        return openCloseTime;
-    }
-    
-    /**
-     * sets the openCloseTime
-     * @param openCloseTime String containing openCloseTime
-     */
-    public void setOpenCloseTime(String openCloseTime) {
-        this.openCloseTime = openCloseTime;
-    }  
-    
-    //---Get and Set for Splitted Address---
-    /**
-     * gets the addressFirstLine
-     * @return addressFirstLine as String
-     */
-    public String getAddressFirstLine() {
-        return addressFirstLine;
-    }
-
-    /**
-     * sets the addressFirstLine
-     * @param addressFirstLine a string containing addressFirstLine
-     */
-    public void setAddressFirstLine(String addressFirstLine) {
-        this.addressFirstLine = addressFirstLine;
-    }
-
-    /**
-     * gets the addressCounty
-     * @return addressCounty as String
-     */
-    public String getAddressCounty() {
-        return addressCounty;
-    }
-
-    /**
-     * sets the addressCounty
-     * @param addressCounty a string containing AddressCounty
-     */
-    public void setAddressCounty(String addressCounty) {
-        this.addressCounty = addressCounty;
-    }
-
-    /**
-     * gets the addressCountry
-     * @return addressCountry as String
-     */
-    public String getAddressCountry() {
-        return addressCountry;
-    }
-
-    /**
-     * sets the addressCountry
-     * @param addressCountry a string containing AddressCountry
-     */
-    public void setAddressCountry(String addressCountry) {
-        this.addressCountry = addressCountry;
-    }
-
-    /**
-     * gets the AddressPostcode
-     * @return AddressPostcode as String
-     */
-    public String getAddressPostcode() {
-        return addressPostcode;
-    }
-
-    /**
-     * sets the addressPostcode
-     * @param addressPostcode a string containing AddressLine1
-     */
-    public void setAddressPostcode(String addressPostcode) {
-        this.addressPostcode = addressPostcode;
-    }   
 }

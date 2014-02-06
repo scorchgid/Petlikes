@@ -11,21 +11,25 @@ import java.util.ArrayList;
 /**
  *
  * @author Scorchgid
+ * x = 5 = y = 1
  */
-public class FileUtill 
+public class FileUtill //change tofile reader class
 {   
-    void FileRead ()throws FileNotFoundException, IOException
+    ArrayList<String> FileRead ()throws FileNotFoundException, IOException
     {
-            BufferedReader row = new BufferedReader(new FileReader("petStoreDinosaur.csv"));
-            
-            while(row <  ++)
+            ArrayList<String> pass = new ArrayList<String>();
+            BufferedReader row = new BufferedReader(new FileReader("petStoreRawDinosaur.csv"));
+            boolean i = false;
+            i = row.ready();
+            System.out.println(i);
+            String rawDataLine;
+            row.readLine();
+            while((rawDataLine = row.readLine()) != null)
             {
-                ArrayList<String> a = new ArrayList<String>;
-                a.add(row.readLine() String );
-                
-                        
-                
-            }        
+                //System.out.println(rawDataLine);
+                pass.add(rawDataLine);
+            }    
+            return pass;
     }
     
     
