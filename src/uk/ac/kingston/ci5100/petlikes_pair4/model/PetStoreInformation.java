@@ -12,53 +12,56 @@ package uk.ac.kingston.ci5100.petlikes_pair4.model;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
+import sun.org.mozilla.javascript.internal.ast.SwitchCase;
 public class PetStoreInformation 
-{    
-        
+{           
+    public ArrayList<IndividualPetStore> mainList;
+    
     public void importCSV () throws FileNotFoundException, IOException
     {
-        FileUtill ing = new FileUtill();
-        ArrayList<String> rawList = ing.FileRead();
+        FileImport ing = new FileImport();
+        mainList = ing.FileRead();
+    }
+    
+    public void print()
+    {
+        for(IndividualPetStore demo : mainList)
         {
-            for (int i = 0; i<rawList.size(); i++)
-            {
-                IndividualPetStore Store = new IndividualPetStore();
-                String m = rawList.get(i);
-                String[] list = splitRawTest(m);
-
-                this.shopName = list[0];
-                this.rawAddress = list[1];
-                this.phoneNumbers = list[2];
-                this.website = list[3];
-                this.openCloseTime = list[4];
-
-            }
+            System.out.println(demo.getShopName());
         }
-    }    
-    //---Primary Methods---
-    public String[] splitRawTest (String input)
-    {
-        String[] a = input.split(",");    
-        return a;
     }
-    public void giveStringToAt(String[] c)
-    {
-        setShopName(c[0]);
-        setRawAddress(c[1]);
-        setPhoneNumbers(c[2]);
-        setWebsite(c[3]);
-        setOpenCloseTime(c[4]);
+    
+    // A demo to try and attempt requested data through Command line
+    public void switchDemo()
+    { 
+        Main x = new Main();
+        int q = 3   ;
+        String y = x.readCommands();
+        switch(q)
+        {
+           case 1: y = "name";
+            {
+                for(IndividualPetStore demo : mainList)
+                {
+                    System.out.println("HHello");
+                    System.out.println(demo.getShopName());   
+                }
+            }
+            case 2: y = "address";
+            {
+                for(IndividualPetStore demo : mainList)
+                {
+                    System.out.print(demo.getRawAddress());
+                    break;
+                }
+            }
+                
+        }
     }
-    /**
-     * Convert an array of Strings into one String
-     * @param a target array of Strings
-     * @return single String comprised of all the array elements separated by spaces
-     */
-    
-    
-    //String[] addr = rawAddress.split(":");
-    //(java.lang.String[]) [, a, b, c, d, e, f];    
-    
-    
-
+        public void exportToTxt() throws FileNotFoundException
+        {
+            FileExport gui = new FileExport();
+            //gui.notepad(mainList);
+        }
 }
+

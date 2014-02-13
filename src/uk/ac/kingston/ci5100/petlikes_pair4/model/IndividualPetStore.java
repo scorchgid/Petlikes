@@ -25,6 +25,19 @@ public class IndividualPetStore
     //Phone Num to an Integer
     private Integer phoneNumbersNum;
 
+    public IndividualPetStore(String shopName, String rawAddress, String phoneNumbers, String website, String openCloseTime) {
+        this.shopName = shopName;
+        this.rawAddress = rawAddress;
+        this.phoneNumbers = phoneNumbers;
+        this.website = website;
+        this.openCloseTime = openCloseTime;
+    }
+
+    //--ToString--
+    @Override
+    public String toString() {
+        return shopName + ", " + rawAddress + ", " + phoneNumbers + ", " + website + ", " + openCloseTime;
+    }
     
     
     //---GetandSetters---
