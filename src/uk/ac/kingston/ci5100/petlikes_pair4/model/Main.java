@@ -16,12 +16,13 @@ import java.util.Scanner;
  */
 public class Main {
 
-    public String readCommands()
+    public static int readCommandNumber() // String is entered, parsed and returned as an int,used for switch options
     {
         String nextLine;
         Scanner sc = new Scanner(System.in);
         nextLine = sc.nextLine();
-        return nextLine;
+        int paul = Integer.parseInt(nextLine);
+        return paul;
     }
     
     /**
@@ -32,9 +33,8 @@ public class Main {
         PetStoreInformation psi = new PetStoreInformation();
         psi.importCSV();
         psi.exportToTxt();
-        //psi.print();
+        psi.print();
         psi.switchDemo();
-        
     }
 }
 

@@ -12,7 +12,6 @@ package uk.ac.kingston.ci5100.petlikes_pair4.model;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
-import sun.org.mozilla.javascript.internal.ast.SwitchCase;
 public class PetStoreInformation 
 {           
     public ArrayList<IndividualPetStore> mainList;
@@ -30,35 +29,29 @@ public class PetStoreInformation
             System.out.println(demo.getShopName());
         }
     }
-    
+
     // A demo to try and attempt requested data through Command line
     public void switchDemo()
     { 
-        Main x = new Main();
-        int q = 3   ;
-        String y = x.readCommands();
-        switch(q)
+        //Main x = new Main();
+        int caseNumber = Main.readCommandNumber();
+        switch(caseNumber)
         {
-           case 1: y = "name";
-            {
+           case 1:
+               for(IndividualPetStore demo : mainList)
+               {
+                   System.out.println(demo.getShopName());   
+               }
+               break;
+            case 2:
                 for(IndividualPetStore demo : mainList)
                 {
-                    System.out.println("HHello");
-                    System.out.println(demo.getShopName());   
+                    System.out.println(demo.getRawAddress());
                 }
-            }
-            case 2: y = "address";
-            {
-                for(IndividualPetStore demo : mainList)
-                {
-                    System.out.print(demo.getRawAddress());
-                    break;
-                }
-            }
-                
+                break;
+            }       
         }
-    }
-        public void exportToTxt() throws FileNotFoundException
+    public void exportToTxt() throws FileNotFoundException
         {
             FileExport gui = new FileExport();
             //gui.notepad(mainList);
