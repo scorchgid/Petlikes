@@ -4,12 +4,13 @@
  * and open the template in the editor.
  */
 
-package uk.ac.kingston.ci5100.petlikes_pair4.model;
+package uk.ac.kingston.ci5100.petlikes_pair4.control;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.PrintStream;
 import java.util.Scanner;
+import uk.ac.kingston.ci5100.petlikes_pair4.utils.PetStoreInformation;
 /**
  *
  * @author Charlotte

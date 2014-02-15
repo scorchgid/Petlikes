@@ -7,11 +7,14 @@
 /**
  * @author k1258579, k1009705
  */
-package uk.ac.kingston.ci5100.petlikes_pair4.model;
+package uk.ac.kingston.ci5100.petlikes_pair4.utils;
 
+import uk.ac.kingston.ci5100.petlikes_pair4.utils.FileImport;
+import uk.ac.kingston.ci5100.petlikes_pair4.control.Main;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
+import uk.ac.kingston.ci5100.petlikes_pair4.view.FileExport;
 public class PetStoreInformation 
 {           
     public ArrayList<IndividualPetStore> mainList;
