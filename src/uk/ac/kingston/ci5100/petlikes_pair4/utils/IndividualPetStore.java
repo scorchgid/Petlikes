@@ -1,14 +1,11 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
+/**
+ * @author k1009705(Gideon), k1258579(Charlotte)
  */
+
 package uk.ac.kingston.ci5100.petlikes_pair4.utils;
 
-/**
- *
- * @author Scorchgid
- */
-public class IndividualPetStore 
+public class IndividualPetStore implements Comparable<IndividualPetStore>
+
 {
     private String shopName;
     private String rawAddress;
@@ -34,11 +31,54 @@ public class IndividualPetStore
     }
 
     //--ToString--
+    /**
+     * Redoes a pet store to string separated by commas
+     * (kinda like the original file/array)
+     * @return formatted address in string format
+     */
     @Override
     public String toString() {
         return shopName + ", " + rawAddress + ", " + phoneNumbers + ", " + website + ", " + openCloseTime;
     }
+    /**
+     * Get an individual pet store in formatted input
+     * @return formatted petstore info
+     */
+    public String getIndividualPetStore()
+    {
+        String a = 
+                this.getShopName() +"\n"
+                + this.getRawAddress() +"\n"
+                + this.getPhoneNumbers() +"\n"
+                + this.getWebsite() +"\n"
+                + this.getOpenCloseTimes()+"\n";
+        return a;
+    }
+            
+    //method that returns a string, and that stirng is the format that you want to appear of your petshops
+    //
     
+    //--ConvertTelephoneNumberStringToInt--
+   /**
+     * convert phone numbers to int, not sure why we kept this so ignore
+     * @return phone number as int
+     */
+    public int getTelephoneAsInt ()
+    {
+        int s = Integer.parseInt(this.getPhoneNumbers());
+        return s;
+    }
+            
+    //--Compareable--
+    
+    /**
+     * Sorts shops by name
+     * @return sorted shop names
+     */
+    public int compareTo(IndividualPetStore q)
+    {
+        return this.getShopName().compareToIgnoreCase(q.getShopName());
+    }
     
     //---GetandSetters---
     

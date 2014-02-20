@@ -1,23 +1,32 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/**
+ * @author k1009705(Gideon), k1258579(Charlotte)
  */
 
-/**
- * @author k1258579, k1009705
- */
 package uk.ac.kingston.ci5100.petlikes_pair4.utils;
 
-import uk.ac.kingston.ci5100.petlikes_pair4.utils.FileImport;
-import uk.ac.kingston.ci5100.petlikes_pair4.control.Main;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
-import uk.ac.kingston.ci5100.petlikes_pair4.view.FileExport;
+import java.util.Collections;
 public class PetStoreInformation 
 {           
-    public ArrayList<IndividualPetStore> mainList;
+    public static ArrayList<IndividualPetStore> mainList;
+
+    /**
+     * get the main list of individual pet stores as ArrayList
+     * @return mainList as an ArrayList
+     */
+    public static ArrayList<IndividualPetStore> getMainList() {
+        return mainList;
+    }
+
+    /**
+     * 
+     * @param mainList 
+     */
+    public static void setMainList(ArrayList<IndividualPetStore> mainList) {
+        PetStoreInformation.mainList = mainList;
+    }
     
     public void importCSV () throws FileNotFoundException, IOException
     {
@@ -25,39 +34,8 @@ public class PetStoreInformation
         mainList = ing.FileRead();
     }
     
-    public void print()
+    public void sortstuff()
     {
-        for(IndividualPetStore demo : mainList)
-        {
-            System.out.println(demo.getShopName());
-        }
+        Collections.sort(mainList);
     }
-
-    // A demo to try and attempt requested data through Command line
-    public void switchDemo()
-    { 
-        //Main x = new Main();
-        int caseNumber = Main.readCommandNumber();
-        switch(caseNumber)
-        {
-           case 1:
-               for(IndividualPetStore demo : mainList)
-               {
-                   System.out.println(demo.getShopName());   
-               }
-               break;
-            case 2:
-                for(IndividualPetStore demo : mainList)
-                {
-                    System.out.println(demo.getRawAddress());
-                }
-                break;
-            }       
-        }
-    public void exportToTxt() throws FileNotFoundException
-        {
-            FileExport gui = new FileExport();
-            //gui.notepad(mainList);
-        }
 }
-
