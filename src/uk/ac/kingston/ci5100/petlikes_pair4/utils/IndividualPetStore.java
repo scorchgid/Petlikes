@@ -4,6 +4,8 @@
 
 package uk.ac.kingston.ci5100.petlikes_pair4.utils;
 
+import java.util.ArrayList;
+
 public class IndividualPetStore implements Comparable<IndividualPetStore>
 
 {
@@ -21,7 +23,9 @@ public class IndividualPetStore implements Comparable<IndividualPetStore>
     private String addressCountry;
     //Phone Num to an Integer
     private Integer phoneNumbersNum;
-
+    
+    private ArrayList<IndividualPet> pet;
+    
     public IndividualPetStore(String shopName, String rawAddress, String phoneNumbers, String website, String openCloseTime) {
         this.shopName = shopName;
         this.rawAddress = rawAddress;
@@ -75,6 +79,7 @@ public class IndividualPetStore implements Comparable<IndividualPetStore>
      * Sorts shops by name
      * @return sorted shop names
      */
+    
     public int compareTo(IndividualPetStore q)
     {
         return this.getShopName().compareToIgnoreCase(q.getShopName());

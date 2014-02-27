@@ -5,9 +5,12 @@
 package uk.ac.kingston.ci5100.petlikes_pair4.view;
 
 import java.io.FileNotFoundException;
+import java.util.Iterator;
 import uk.ac.kingston.ci5100.petlikes_pair4.utils.IndividualPetStore;
-import uk.ac.kingston.ci5100.petlikes_pair4.utils.PetStoreInformation;
+import uk.ac.kingston.ci5100.petlikes_pair4.utils.IndividualPet;
+import uk.ac.kingston.ci5100.petlikes_pair4.utils.CombinedPetStore;
 import java.util.Scanner;
+import uk.ac.kingston.ci5100.petlikes_pair4.utils.CombinedPet;
 
 public class CommandLineExport {
 
@@ -38,27 +41,27 @@ public class CommandLineExport {
                 System.out.println("Skipping Switch Demo");
                 break;
             case 1: // Print the Shop Name
-                for (IndividualPetStore demo : PetStoreInformation.mainList) {
+                for (IndividualPetStore demo : CombinedPetStore.storeList) {
                     System.out.println(demo.getShopName());
                 }
                 break;
             case 2: // Print The Raw Address
-                for (IndividualPetStore demo : PetStoreInformation.mainList) {
+                for (IndividualPetStore demo : CombinedPetStore.storeList) {
                     System.out.println(demo.getRawAddress());
                 }
                 break;
             case 3: // Print all the petstore information
-                for (IndividualPetStore demo : PetStoreInformation.mainList) {
+                for (IndividualPetStore demo : CombinedPetStore.storeList) {
                     System.out.println(demo.toString());
                 }
                 break;
             case 4: // Print all the information line by line
-                for(IndividualPetStore demo : PetStoreInformation.mainList) {
+                for(IndividualPetStore demo : CombinedPetStore.storeList) {
                    System.out.println(demo.getIndividualPetStore());
                 }
                 break;
             case 5: // Print all the information line by line with a line sepprating
-                for(IndividualPetStore demo : PetStoreInformation.mainList) {
+                for(IndividualPetStore demo : CombinedPetStore.storeList) {
                     System.out.println("____________________________________________");
                     System.out.println(demo.getIndividualPetStore());
                 }
@@ -75,19 +78,28 @@ public class CommandLineExport {
                 }
                 break;
             case 8 : 
-                for (IndividualPetStore demo : PetStoreInformation.mainList) {
+                for (IndividualPetStore demo : CombinedPetStore.storeList) {
                     String texts = demo.toString();
                     ApplicationViewerUtill.mainView.getDave().append(texts + "\n");
                     }
                 break;
             case 9 : 
-                for (IndividualPetStore demo : PetStoreInformation.mainList) 
+                for (IndividualPetStore demo : CombinedPetStore.storeList) 
                 {
                     String line = "____________________________________________";
                     String texts = demo.getIndividualPetStore();
                     ApplicationViewerUtill.mainView.getDave().append(line + "\n" + texts + "\n");
                 }
                 break;
+            case 10 :
+                for (IndividualPet demo : CombinedPet.petList)
+                {
+                    String text = demo.toString();
+                    ApplicationViewerUtill.mainView.getDave().append("\n " + text);
+                }
+            case 11 :
+                System.out.println(IndividualPet.);
+                }
         }
     }
 }

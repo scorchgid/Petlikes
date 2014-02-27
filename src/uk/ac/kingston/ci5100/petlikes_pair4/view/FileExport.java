@@ -9,7 +9,7 @@ import java.io.FileOutputStream;
 import java.io.PrintStream;
 import java.util.ArrayList;
 import uk.ac.kingston.ci5100.petlikes_pair4.utils.IndividualPetStore;
-import uk.ac.kingston.ci5100.petlikes_pair4.utils.PetStoreInformation;
+import uk.ac.kingston.ci5100.petlikes_pair4.utils.CombinedPetStore;
 
 
 /**
@@ -21,7 +21,7 @@ public class FileExport {
     {
         PrintStream out = new PrintStream(new FileOutputStream("output.txt"));
         {
-            for(IndividualPetStore demo : PetStoreInformation.mainList)
+            for(IndividualPetStore demo : CombinedPetStore.storeList)
                {
                    out.println(demo .getShopName());   
                }
