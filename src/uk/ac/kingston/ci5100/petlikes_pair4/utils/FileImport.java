@@ -9,8 +9,6 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 
-
-
 public class FileImport //change tofile reader class
 {   
     public static String petFirstLine;
@@ -44,13 +42,11 @@ public class FileImport //change tofile reader class
            String[] list = splitRawTest(rawDataLine);
            IndividualPetStore n= new IndividualPetStore(list[0], list[1], list[2], list[3], list[4]);
            petStoreArray.add(n);
-
         }    
         return petStoreArray;
     }
     //--------------------------------------------------------------------------------------------------------------------------------------
-    
-    ArrayList<IndividualPet> FileReadPet ()throws FileNotFoundException, IOException
+    ArrayList<IndividualPet> FileReadPet ()throws FileNotFoundException, IOException, Exception
     {
         ArrayList<IndividualPet> petArray = new ArrayList<IndividualPet>();
         BufferedReader row = new BufferedReader(new FileReader("petshop-pets.csv"));
@@ -64,6 +60,4 @@ public class FileImport //change tofile reader class
         }    
         return petArray;
     }
-    //
-    
 }

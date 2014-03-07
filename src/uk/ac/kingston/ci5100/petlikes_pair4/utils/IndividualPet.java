@@ -8,27 +8,30 @@ package uk.ac.kingston.ci5100.petlikes_pair4.utils;
  *
  * @author Scorchgid
  */
-public class IndividualPet {
-
+public class IndividualPet implements Comparable<IndividualPet>
+{
     String shop;
     String type;
     String priceString;
-    int price;
+    double price;
     String dateAcquired;
     String notes;
     
-    public IndividualPet(String shop, String type, String priceString, String dateAcquired, String notes)
+    public IndividualPet(String shop, String type, String priceString, String dateAcquired, String notes) throws Exception
     {
         this.shop = shop;
         this.type = type;
         this.priceString = priceString;
         this.dateAcquired = dateAcquired;
         this.notes = notes;
+        this.price = priceStrings(priceString); //throws Exception;
     }  
-    /*public IndividualPet (String priceString)
+    
+    public double priceStrings(String a) throws Exception
     {
-        this.price = Integer.parseInt(priceString);
-    }*/
+        double b = Double.parseDouble(a);
+        return b;
+    }
     
    @Override
    public String toString(){
@@ -66,11 +69,11 @@ public class IndividualPet {
         this.priceString = priceString;
     }
 
-    public int getPrice() {
+    public double getPrice() {
         return price;
     }
 
-    public void setPrice(int price) {
+    public void setPrice(double price) {
         this.price = price;
     }
 

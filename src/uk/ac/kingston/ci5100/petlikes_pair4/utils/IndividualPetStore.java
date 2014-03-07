@@ -24,8 +24,15 @@ public class IndividualPetStore implements Comparable<IndividualPetStore>
     //Phone Num to an Integer
     private Integer phoneNumbersNum;
     
-    private ArrayList<IndividualPet> pet;
-    
+    private ArrayList<IndividualPet> pet = new ArrayList<IndividualPet>();
+
+    public ArrayList<IndividualPet> getPets() {
+        return pet;
+    }
+    public void setPet(ArrayList<IndividualPet> pet) {
+        this.pet = pet;
+    }
+
     public IndividualPetStore(String shopName, String rawAddress, String phoneNumbers, String website, String openCloseTime) {
         this.shopName = shopName;
         this.rawAddress = rawAddress;

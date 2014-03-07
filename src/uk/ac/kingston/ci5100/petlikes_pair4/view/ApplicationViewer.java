@@ -14,13 +14,13 @@ public class ApplicationViewer extends JFrame
 {
     
 
-    private JTextArea dave =  new JTextArea();
+    private JTextArea textArea =  new JTextArea();
    /**
      * Create the main application window
      */
     public ApplicationViewer()
     {
-        JScrollPane scroll = new JScrollPane(dave);
+        JScrollPane scroll = new JScrollPane(textArea);
         this.setTitle("Petshop Data Viewer");
         this.setSize(500,500);
         scroll.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
@@ -29,20 +29,20 @@ public class ApplicationViewer extends JFrame
         this.setResizable(false);
         this.setVisible(true);
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
-
-    }  
-    
+    }
     /**
      * getter for main text area
      * @return dave as JTextArea
      */
     public JTextArea getDave() {
-        return dave;
+        return textArea;
     }
     /**
      * setter for main text area in our ApplicationViewer
      */
     public void setDave(JTextArea dave) {
-        this.dave = dave;
+        this.textArea = dave;
     }
+    
+    
 }

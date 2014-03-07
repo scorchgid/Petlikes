@@ -5,7 +5,6 @@
 package uk.ac.kingston.ci5100.petlikes_pair4.view;
 
 import java.io.FileNotFoundException;
-import java.util.Iterator;
 import uk.ac.kingston.ci5100.petlikes_pair4.utils.IndividualPetStore;
 import uk.ac.kingston.ci5100.petlikes_pair4.utils.IndividualPet;
 import uk.ac.kingston.ci5100.petlikes_pair4.utils.CombinedPetStore;
@@ -17,7 +16,7 @@ public class CommandLineExport {
     /**
      * Reads the number input into the command line for use in switchDemo 
      * below.
-     * @return int paul for caseNumber in switchDemo
+     * @return int Paul for caseNumber in switchDemo
      */
     public static int readCommandNumber() {
         String nextLine;
@@ -96,10 +95,25 @@ public class CommandLineExport {
                 {
                     String text = demo.toString();
                     ApplicationViewerUtill.mainView.getDave().append("\n " + text);
-                }
-            case 11 :
-                System.out.println(IndividualPet.);
-                }
+                }    
+            case 11 : //Average Store Calculation
+               for (IndividualPetStore qw : CombinedPetStore.storeList)
+               {
+                   //an average price for each store
+                   double totalPrice = 0;
+                   double averagePrice = 0;
+                   int countPet = 0;
+                   
+                   for(IndividualPet petFor : qw.getPets())
+                   {
+                       totalPrice = petFor.getPrice()+totalPrice;
+                       countPet++;
+                   }
+                   String fore = String.format("%.2f",totalPrice/countPet);
+                   System.out.println("aveprice in pethsop "+ qw.getShopName() + "is" + " £" + fore);
+               }
+            
+                
         }
     }
 }

@@ -8,6 +8,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
+import uk.ac.kingston.ci5100.petlikes_pair4.view.ApplicationViewerUtill;
 public class CombinedPetStore 
 {           
     public static ArrayList<IndividualPetStore> storeList;
@@ -40,16 +41,39 @@ public class CombinedPetStore
     }
     
     public void petGrab()
-    {
-        int index = 0;
-        
-        for(IndividualPet demo: CombinedPet.petList)
+    {        
+        for (IndividualPetStore store : CombinedPetStore.storeList)
         {
-            
-            // Trying to compare
-            index++;
-            i = storeList.get(index);
-            if(demo.shop == ;
+            for(IndividualPet pet: CombinedPet.petList)
+            {
+                if(pet.getShop().equals(store.getShopName()))
+                {
+                    store.getPets().add(pet);
+                }
+            }
         }
+    }
+    
+    public void averageStoreCalculation()
+    {
+            for (IndividualPetStore qw : CombinedPetStore.storeList)
+            {
+                //an average price for each store
+                double totalPrice = 0;
+                double averagePrice = 0;
+                int countPet = 0;
+
+                for(IndividualPet petFor : qw.getPets())
+                {
+                    totalPrice = petFor.getPrice()+totalPrice;
+                    countPet++;
+                }
+                averagePrice = totalPrice/countPet;
+            }
+    }
+    public String rThatNum(double a)
+    {
+        String fore = String.format("%.2f",a);
+        return fore;
     }
 }

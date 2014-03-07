@@ -24,9 +24,14 @@ public class CombinedPet {
         CombinedPet.petList = mainList;
     }
     
-    public void importCSV() throws FileNotFoundException, IOException
+    public void importCSV() throws FileNotFoundException, IOException, Exception
     {
         FileImport ing = new FileImport();
         petList = ing.FileReadPet();
+    }
+            public void sortstuff()
+    {
+        Collections.sort(petList);
+        
     }
 }
