@@ -8,7 +8,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
-import uk.ac.kingston.ci5100.petlikes_pair4.view.ApplicationViewerUtill;
+import uk.ac.kingston.ci5100.petlikes_pair4.view.ApplicationViewerControl;
 public class CombinedPetStore 
 {           
     public static ArrayList<IndividualPetStore> storeList;
@@ -43,9 +43,10 @@ public class CombinedPetStore
     public void petGrab()
     {        
         for (IndividualPetStore store : CombinedPetStore.storeList)
-        {
+        { //create a new tab with the name of the shop
+            //creat a table
             for(IndividualPet pet: CombinedPet.petList)
-            {
+            { //add this data to row
                 if(pet.getShop().equals(store.getShopName()))
                 {
                     store.getPets().add(pet);

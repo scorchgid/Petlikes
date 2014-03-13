@@ -7,9 +7,9 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import uk.ac.kingston.ci5100.petlikes_pair4.utils.CombinedPet;
 import static uk.ac.kingston.ci5100.petlikes_pair4.utils.CombinedPet.petList;
-import uk.ac.kingston.ci5100.petlikes_pair4.view.ApplicationViewer;
+import uk.ac.kingston.ci5100.petlikes_pair4.view.ApplicationText;
 import uk.ac.kingston.ci5100.petlikes_pair4.utils.CombinedPetStore;
-import uk.ac.kingston.ci5100.petlikes_pair4.view.ApplicationViewerUtill;
+import uk.ac.kingston.ci5100.petlikes_pair4.view.ApplicationViewerControl;
 import uk.ac.kingston.ci5100.petlikes_pair4.view.CommandLineExport;
 import uk.ac.kingston.ci5100.petlikes_pair4.view.SwingTable;
 
@@ -37,8 +37,8 @@ public class ApplicationControl {
         psi.averageStoreCalculation();
         
         //Create the viewer
-        ApplicationViewer av = new ApplicationViewer(); 
-        ApplicationViewerUtill avu = new ApplicationViewerUtill();
+        ApplicationText av = new ApplicationText(); 
+        ApplicationViewerControl avu = new ApplicationViewerControl();
         avu.setMainView(av);
         
         SwingTable tab = new SwingTable();

@@ -29,7 +29,7 @@ public class CommandLineExport {
     /**
      * A demo that attempts to take input from the command line through 
      * readCommandNumber over and displays the into requested and noted below 
-     * either through the command line or in the ApplicationViewer window 
+     * either through the command line or in the ApplicationText window 
      */
     public void switchDemo() throws FileNotFoundException 
     {
@@ -73,13 +73,13 @@ public class CommandLineExport {
                 break;
             case 7 : //printTextInSwingDemo
                 {
-                    ApplicationViewerUtill.mainView.getDave().setText("lessser");
+                    ApplicationViewerControl.mainView.getDave().setText("lessser");
                 }
                 break;
             case 8 : 
                 for (IndividualPetStore demo : CombinedPetStore.storeList) {
                     String texts = demo.toString();
-                    ApplicationViewerUtill.mainView.getDave().append(texts + "\n");
+                    ApplicationViewerControl.mainView.getDave().append(texts + "\n");
                     }
                 break;
             case 9 : 
@@ -87,14 +87,14 @@ public class CommandLineExport {
                 {
                     String line = "____________________________________________";
                     String texts = demo.getIndividualPetStore();
-                    ApplicationViewerUtill.mainView.getDave().append(line + "\n" + texts + "\n");
+                    ApplicationViewerControl.mainView.getDave().append(line + "\n" + texts + "\n");
                 }
                 break;
             case 10 :
                 for (IndividualPet demo : CombinedPet.petList)
                 {
                     String text = demo.toString();
-                    ApplicationViewerUtill.mainView.getDave().append("\n " + text);
+                    ApplicationViewerControl.mainView.getDave().append("\n " + text);
                 }    
             case 11 : //Average Store Calculation
                for (IndividualPetStore qw : CombinedPetStore.storeList)

@@ -4,16 +4,16 @@
 
 package uk.ac.kingston.ci5100.petlikes_pair4.view;
 
-public class ApplicationViewerUtill 
+public class ApplicationViewerControl 
 {
-       static ApplicationViewer mainView;
+       static ApplicationText mainView;
 
        
        /**
         * gets the mainView window
         * @return mainView static appviewer window
         */
-    public static ApplicationViewer getMainView() {
+    public static ApplicationText getMainView() {
         return mainView;
     }
 
@@ -21,7 +21,7 @@ public class ApplicationViewerUtill
         * setter for mainView
         * @param mainView main application viewer
         */
-    public void setMainView(ApplicationViewer mainView) {
-        ApplicationViewerUtill.mainView = mainView;
+    public void setMainView(ApplicationText mainView) {
+        ApplicationViewerControl.mainView = mainView;
     }
 }
