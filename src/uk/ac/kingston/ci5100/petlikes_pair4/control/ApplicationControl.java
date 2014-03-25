@@ -9,9 +9,11 @@ import uk.ac.kingston.ci5100.petlikes_pair4.utils.CombinedPet;
 import static uk.ac.kingston.ci5100.petlikes_pair4.utils.CombinedPet.petList;
 import uk.ac.kingston.ci5100.petlikes_pair4.view.ApplicationText;
 import uk.ac.kingston.ci5100.petlikes_pair4.utils.CombinedPetStore;
+import uk.ac.kingston.ci5100.petlikes_pair4.view.ApplicationFrame;
+import uk.ac.kingston.ci5100.petlikes_pair4.view.ApplicationPanel;
 import uk.ac.kingston.ci5100.petlikes_pair4.view.ApplicationViewerControl;
 import uk.ac.kingston.ci5100.petlikes_pair4.view.CommandLineExport;
-import uk.ac.kingston.ci5100.petlikes_pair4.view.SwingTable;
+import uk.ac.kingston.ci5100.petlikes_pair4.view.ApplicationTable;
 
 public class ApplicationControl {
     
@@ -34,15 +36,16 @@ public class ApplicationControl {
         psi.sortstuff();
         pet.sortstuff();
         psi.petGrab();
-        psi.averageStoreCalculation();
+        psi.
         
         //Create the viewer
-        ApplicationText av = new ApplicationText(); 
-        ApplicationViewerControl avu = new ApplicationViewerControl();
-        avu.setMainView(av);
+        ApplicationFrame a = new ApplicationFrame();
+        //ApplicationText av = new ApplicationText(); 
+        //ApplicationViewerControl avu = new ApplicationViewerControl();
+        //avu.setMainView(av);
         
-        SwingTable tab = new SwingTable();
-        tab.JFrame();
+        //ApplicationTable tab = new ApplicationTable();
+        //tab.JFrame();
         
         //Print the data you want
         cmd.switchDemo();

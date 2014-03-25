@@ -37,7 +37,13 @@ public class IndividualPet implements Comparable<IndividualPet>
    public String toString(){
        return shop + ", " + type + ", " + priceString + ", " + dateAcquired + ", " + notes;
    }
-    
+   
+   public static String[] getPetHeader()
+   {
+       String[] colNames = {"Type", "Price","Date Acquired", "Addtional Notes"};
+       return colNames;
+   }
+   
    public int compareTo(IndividualPet q)
    {
        return this.getShop().compareToIgnoreCase((q.getShop()));

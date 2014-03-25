@@ -65,7 +65,11 @@ public class IndividualPetStore implements Comparable<IndividualPetStore>
                 + this.getOpenCloseTimes()+"\n";
         return a;
     }
-            
+    public static String[] getPetStoreHeader()
+    {
+        String[] colNames = {"Shop Name", "Address","Phone Number", "Website", "Operning Times"};
+        return colNames;
+    }
     //method that returns a string, and that stirng is the format that you want to appear of your petshops
     //
     

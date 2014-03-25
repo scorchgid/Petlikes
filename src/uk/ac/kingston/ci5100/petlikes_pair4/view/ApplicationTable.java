@@ -14,9 +14,8 @@ import javax.swing.JTable;
  *
  * @author Scorchgid
  */
-public class SwingTable extends JPanel 
+public class ApplicationTable extends JPanel 
 {
-
     JTable table;
     
     //---- JTABLE ----//
@@ -26,7 +25,7 @@ public class SwingTable extends JPanel
         String[][] data =
         {
             {"Kenny", "South", "Well fuck you too"},
-            {"Kyle", "Park", "OH COME ON!"},
+            {"Kyle", "Park",     "OH COME ON!"},
             {"Cartman", "Park", "OH COME ON!"},
         };
 
@@ -41,13 +40,13 @@ public class SwingTable extends JPanel
     public void JFrame()
     {
         JFrame frame = new JFrame();
-        SwingTable t = new SwingTable();
+        ApplicationTable t = new ApplicationTable();
         t.SwingTable();
         frame.setTitle("Lets try");
         frame.setSize(500, 500);
         frame.setLocation(500, 500);
         frame.setVisible(true);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+   //     frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOS);
         frame.add(t);
     }
 }
