@@ -36,8 +36,6 @@ public class ApplicationControl {
         psi.sortstuff();
         pet.sortstuff();
         psi.petGrab();
-        psi.
-        
         //Create the viewer
         ApplicationFrame a = new ApplicationFrame();
         //ApplicationText av = new ApplicationText(); 

@@ -62,8 +62,6 @@ public class CombinedPetStore
 //                
 //                ];
 //    }
-            
-    
     /**
      * 
      * @param storeList 
@@ -115,7 +113,9 @@ public class CombinedPetStore
                     countPet++;
                 }
                 averagePrice = totalPrice/countPet;
-                String result = String.format("%.2f",averagePrice);
+                
+                String result = String.format("£"+"%.2f",averagePrice);
+                
                 return result;
                 }
             }

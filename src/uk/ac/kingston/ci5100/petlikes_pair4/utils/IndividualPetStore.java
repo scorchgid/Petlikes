@@ -67,7 +67,7 @@ public class IndividualPetStore implements Comparable<IndividualPetStore>
     }
     public static String[] getPetStoreHeader()
     {
-        String[] colNames = {"Shop Name", "Address","Phone Number", "Website", "Operning Times"};
+        String[] colNames = {"Shop Name", "Address","Phone Number", "Website", "Operning Times", "Average"};
         return colNames;
     }
     //method that returns a string, and that stirng is the format that you want to appear of your petshops

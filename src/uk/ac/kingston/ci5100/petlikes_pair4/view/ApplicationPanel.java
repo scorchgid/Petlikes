@@ -4,22 +4,25 @@
  */
 package uk.ac.kingston.ci5100.petlikes_pair4.view;
 
+import java.awt.Dimension;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextArea;
-import uk.ac.kingston.ci5100.petlikes_pair4.utils.CombinedPetStore;
-import uk.ac.kingston.ci5100.petlikes_pair4.utils.IndividualPet;
-import uk.ac.kingston.ci5100.petlikes_pair4.utils.IndividualPetStore;
+import javax.swing.table.TableColumn;
 
 /**
  *
  * @author Scorchgid
  */
-public class ApplicationPanel extends JPanel {
+public class ApplicationPanel extends JPanel implements ActionListener {
 
     public ApplicationPanel(String[][] data, String[] colNames, String text)
-    {   
+    {  
        JTable table = new JTable(data, colNames);
+       JScrollPane scrollPane = new JScrollPane(table);
        JTextArea textInput = new JTextArea();
        
        /*
@@ -31,11 +34,38 @@ public class ApplicationPanel extends JPanel {
        int w = table.getFontMetrics(getHeight());
        table.setSize(w, q);
        }*/
-       
        this.add(new JTable(data, colNames));
+       table.setPreferredScrollableViewportSize(new Dimension(450, 65));
+       table.setFillsViewportHeight(true);
        this.add(new JTextArea(text));  
     }
     
+    public ApplicationPanel(String[][] data, String[] colNames)
+    {   
+       JTable table = new JTable(data, colNames);
+       //table.setPreferredScrollableViewportSize(new Dimension(450, 65));
+       //table.setFillsViewportHeight(true);
+       TableColumn column;
+       JScrollPane scrollPane = new JScrollPane(table);
+       scrollPane.setPreferredSize(new Dimension(900,800));
+     
+     //  column.setResizable(true);
+       for (int i = 0; i<4; i++)
+       {
+           column = table.getColumnModel().getColumn(i);
+           if (i == 2)
+           {
+               column.setPreferredWidth(400);     
+           }
+           else
+           {
+               column.setPreferredWidth(50);
+           }
+       }
+       //this.add(new JTable(data, colNames));
+        
+       this.add(scrollPane);
+    }   
     /*
 //    public ApplicationPanel()
 //    {
@@ -74,5 +104,11 @@ public class ApplicationPanel extends JPanel {
         window.pack();
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }*/
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 
 }
