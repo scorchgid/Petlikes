@@ -4,6 +4,7 @@
  */
 package uk.ac.kingston.ci5100.petlikes_pair4.view;
 
+import java.awt.Button;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -11,13 +12,18 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextArea;
+import javax.swing.JTextField;
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.table.TableColumn;
 
 /**
  *
  * @author Scorchgid
  */
-public class ApplicationPanel extends JPanel implements ActionListener {
+public class ApplicationPanel extends JPanel {
 
     public ApplicationPanel(String[][] data, String[] colNames, String text)
     {  
@@ -65,7 +71,27 @@ public class ApplicationPanel extends JPanel implements ActionListener {
        //this.add(new JTable(data, colNames));
         
        this.add(scrollPane);
-    }   
+    }
+    
+    public ApplicationPanel(String sam, int num, String[] listItems)
+    {
+        JComboBox storeComboList = new JComboBox(listItems);
+        storeComboList.setSelectedIndex(4);
+        this.add(storeComboList);
+        JTextField texts = new JTextField(sam, num);
+        this.add(texts);
+    }
+    
+    public ApplicationPanel ()
+    {
+        JButton closeButton = new JButton("Close");
+        JButton searchButton = new JButton("Search");
+        //closeButton.addActionListener(new ActionListener);
+        add(searchButton);
+        add(closeButton);
+    }
+    
+    
     /*
 //    public ApplicationPanel()
 //    {
@@ -104,11 +130,4 @@ public class ApplicationPanel extends JPanel implements ActionListener {
         window.pack();
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }*/
-
-    @Override
-    public void actionPerformed(ActionEvent e) {
-        
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
 }

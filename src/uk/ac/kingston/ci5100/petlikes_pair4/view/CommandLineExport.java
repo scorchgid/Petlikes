@@ -25,6 +25,13 @@ public class CommandLineExport {
         int paul = Integer.parseInt(nextLine);
         return paul;
     }
+    public static String readString() {
+        String nextLine;
+        Scanner sc = new Scanner(System.in);
+        nextLine = sc.nextLine();
+        return nextLine;
+    }
+    
     
     /**
      * A demo that attempts to take input from the command line through 
@@ -112,8 +119,94 @@ public class CommandLineExport {
                    String fore = String.format("%.2f",totalPrice/countPet);
                    System.out.println("aveprice in pethsop "+ qw.getShopName() + "is" + " £" + fore);
                }
-            
+            case 12: //Display a listof pets
+            {
+                   for(IndividualPet demo : CombinedPet.petList) 
+                   {
+                   System.out.println(demo.getType());
+                   }
+            }
+            case 13 : //Pet Search - will find any matching letters and print Yes, Searches all pets
+            {
+                System.out.println("Please enter a string to search");
+                String parameter = readString();
+                int x = 1;
+                    for(IndividualPet pet : CombinedPet.petList) 
+                    {
+                        System.out.print(x+". "+pet.getType()+" ");
+                        if (pet.getType().toLowerCase().contains(parameter))
+                        {
+                            System.out.println("yes");
+                        }
+                        else
+                        {
+                            System.out.println("no");
+                        }
+                        x++;
+                    }
+                System.out.println("Done");
+            }
+            case 14 : // pet search based on shop   
+            {
+                System.out.print("please enter the shop you wish to search for: ");
+                String shopIWant = readString();
+                System.out.print("Now please enter the pet you wish to search for that is within that shop: ");
+                String petIWant  = readString();
                 
+                int x=1;
+                    for(IndividualPet pet : CombinedPet.petList) 
+                    {
+                        System.out.print(x+". "+pet.getShop()+" Has "+pet.getType());
+                        if (pet.getShop().equals(shopIWant) & pet.getType().toLowerCase().contains(petIWant))
+                        {
+                            System.out.println("  YES");
+                        }
+                        else
+                        {
+                            System.out.println("   no");
+                        }
+                        x++;
+                    }        
+                }
+            case 15 : // 14 Refined that it only prints the matching values
+            {
+                System.out.print("Please enter the shop you wish to search for: ");
+                String shopIWant = readString();
+                System.out.print("Now please enter the pet you wish to search for that is within that shop: ");
+                String petIWant  = readString();
+                
+                int x=1;
+                    for(IndividualPet pet : CombinedPet.petList) 
+                    {
+                        
+                        if (pet.getShop().equals(shopIWant) & pet.getType().toLowerCase().contains(petIWant))
+                        {
+                            System.out.println(x+". "+pet.getShop()+" does indeed have a "+pet.getType());
+                        }
+                        else
+                        {}
+                        x++;
+                    }
+            }
+            case 16 : // 14 Refined that it only prints the matching values
+            {
+                System.out.print("Please enter the shop you wish to search for: ");
+                String shopIWant = readString();
+                System.out.print("Now please enter the pet you wish to search for that is within that shop: ");
+                String petIWant  = readString();
+                
+                int x=1;
+                    for(IndividualPet pet : CombinedPet.petList) 
+                    {
+                        if (pet.getShop().equals(shopIWant) & pet.getType().toLowerCase().contains(petIWant))
+                        {
+                            System.out.println(x+". "+pet.getShop()+" does indeed have a "+pet.getType());
+                        }
+                        else
+                        {}
+                        x++;
+                    }
+            }       
         }
     }
 }

@@ -7,6 +7,7 @@ package uk.ac.kingston.ci5100.petlikes_pair4.utils;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 public class CombinedPetStore 
 {           
@@ -121,6 +122,22 @@ public class CombinedPetStore
             }
             return null;
     }  
+    public static String[] retrievePetStoreNameAsArray()
+    {
+        int x = 0;
+        int i = 0;
+        for (IndividualPetStore demo : CombinedPetStore.storeList) 
+        {
+            x++;
+        }
+        String[] list = new String[x];
+        for (IndividualPetStore demow : CombinedPetStore.storeList)
+        {
+            list[i] = demow.getShopName(); 
+            i++;
+        }
+        return list;
+    }
 /*
         public String[] averageStoreCalculation()
     {

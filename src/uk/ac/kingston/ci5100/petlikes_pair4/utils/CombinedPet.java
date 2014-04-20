@@ -57,4 +57,24 @@ public class CombinedPet {
         }
         return td;
     }
+    public static void petsearch(String parameter)
+    {
+        //String dog = "dog";
+        //String duck = "duck";
+        int x = 1;
+        for(IndividualPet pet : CombinedPet.petList) 
+            {
+                System.out.print(x+". "+pet.getType()+" ");
+                if (pet.getType().toLowerCase().contains(parameter))
+                {
+                    System.out.println("yes");
+                }
+                else
+                {
+                    System.out.println("no");
+                }
+                x++;
+            }
+        System.out.println("Done");
+    }
 }

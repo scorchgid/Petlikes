@@ -4,6 +4,7 @@
  */
 package uk.ac.kingston.ci5100.petlikes_pair4.view;
 import java.awt.Dimension;
+import java.awt.event.ActionEvent;
 import javax.swing.JFrame;
 import static javax.swing.JFrame.EXIT_ON_CLOSE;
 import javax.swing.JScrollPane;
@@ -18,7 +19,6 @@ import uk.ac.kingston.ci5100.petlikes_pair4.utils.IndividualPetStore;
  */
 public class ApplicationFrame extends JFrame
 {
-   
    public ApplicationFrame()
    {
        JTabbedPane tabs = new JTabbedPane();   
@@ -28,17 +28,19 @@ public class ApplicationFrame extends JFrame
        tabs.setSelectedComponent(shops);
        this.pack();
        
-       
-       
-       
        //--------------FOR LOOP--------------//
        for(IndividualPetStore demo : CombinedPetStore.storeList)
        {
-           JTabbedPane taba = new JTabbedPane();
            ApplicationPanel pet = new ApplicationPanel(CombinedPet.getPetAsArrayForTable(demo.getShopName()),IndividualPet.getPetHeader());
-           tabs.add(demo.getShopName(),pet);
-           
+           tabs.add(demo.getShopName(),pet);   
        }
+       
+       String samp = "Hello I am a sample item of text";
+       ApplicationPanel texta = new ApplicationPanel(samp,70,CombinedPetStore.retrievePetStoreNameAsArray());
+       tabs.add("Text", texta);       
+       
+       ApplicationPanel buttona = new ApplicationPanel();
+       tabs.add("Button", buttona);
        
        //ApplicationPanel pets = new ApplicationPanel(CombinedPet.getPetAsArrayForTable(),IndividualPet.getPetHeader(),"ddd";
        
