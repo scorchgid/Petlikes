@@ -38,6 +38,10 @@ public class IndividualPet implements Comparable<IndividualPet>
        return shop + ", " + type + ", " + priceString + ", " + dateAcquired + ", " + notes;
    }
    
+   public String toPet(){
+       return type + ", " + priceString + ", " + dateAcquired + ", " + notes;
+   }
+   
    public static String[] getPetHeader()
    {
        String[] colNames = {"Type", "Price","Date Acquired", "Addtional Notes"};

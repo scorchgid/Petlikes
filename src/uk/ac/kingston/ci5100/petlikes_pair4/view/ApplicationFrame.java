@@ -39,7 +39,7 @@ public class ApplicationFrame extends JFrame
        ApplicationPanel texta = new ApplicationPanel(samp,70,CombinedPetStore.retrievePetStoreNameAsArray());
        tabs.add("Text", texta);       
        
-       ApplicationPanel buttona = new ApplicationPanel();
+       ApplicationPanel buttona = new ApplicationPanel(CombinedPetStore.retrievePetStoreNameAsArray());
        tabs.add("Button", buttona);
        
        //ApplicationPanel pets = new ApplicationPanel(CombinedPet.getPetAsArrayForTable(),IndividualPet.getPetHeader(),"ddd";

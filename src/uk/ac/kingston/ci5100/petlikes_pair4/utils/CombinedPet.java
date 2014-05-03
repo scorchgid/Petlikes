@@ -59,8 +59,6 @@ public class CombinedPet {
     }
     public static void petsearch(String parameter)
     {
-        //String dog = "dog";
-        //String duck = "duck";
         int x = 1;
         for(IndividualPet pet : CombinedPet.petList) 
             {

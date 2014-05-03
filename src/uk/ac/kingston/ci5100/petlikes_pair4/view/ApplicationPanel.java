@@ -4,10 +4,8 @@
  */
 package uk.ac.kingston.ci5100.petlikes_pair4.view;
 
-import java.awt.Button;
 import java.awt.Dimension;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.awt.GridLayout;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
@@ -15,8 +13,7 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
-import javax.swing.JFrame;
-import javax.swing.JOptionPane;
+import javax.swing.JLabel;
 import javax.swing.table.TableColumn;
 
 /**
@@ -82,13 +79,49 @@ public class ApplicationPanel extends JPanel {
         this.add(texts);
     }
     
-    public ApplicationPanel ()
+    public ApplicationPanel (String[] listItems)
     {
+        this.setLayout(new GridLayout(5,5));
+        ApplicationPanelHandler aph = new ApplicationPanelHandler();
         JButton closeButton = new JButton("Close");
+        JButton yoButton = new JButton("Yo");
         JButton searchButton = new JButton("Search");
-        //closeButton.addActionListener(new ActionListener);
+        JButton goButton = new JButton("Go");
+        JLabel notice = new JLabel("Please enter the type of pet you are searching for:");
+        JTextField searchParameter = new JTextField();
+
+        JComboBox storeComboList = new JComboBox(listItems);
+        storeComboList.setSelectedIndex(4);
+        this.add(storeComboList);
+        
+        searchParameter.setPreferredSize(new Dimension(300,25));
+        searchButton.setActionCommand("Search");
+        closeButton.setActionCommand("Go");
+        yoButton.setLocation(0, 0);
+        yoButton.setActionCommand("Yo");
+        goButton.setActionCommand("Go");
+        storeComboList.setActionCommand("combo");
+        
+        this.add(notice);
+        this.add(searchParameter);
+        
+   //     String n = storeComboList.toString();
+     //   System.out.println(n);
+        
+        
+        int b = storeComboList.getItemCount();
+        System.out.println(b);
+        //storeComboList.addActionListener(aph,x);
+        searchButton.addActionListener(aph);
+        goButton.addActionListener(aph);
+        closeButton.addActionListener(aph);
+        
+        
+        //Listen to text, submit on text entered.
+        
+        //closeButton.addActionListener(new ActionListener); see above!!
         add(searchButton);
-        add(closeButton);
+        add(closeButton);   
     }
     
     
