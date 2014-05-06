@@ -31,7 +31,31 @@ public class CommandLineExport {
         nextLine = sc.nextLine();
         return nextLine;
     }
-    
+    public static void searchButton()
+    {
+    String comboSelectedItem = ApplicationPanel.getStoreComboList();
+                String searchPam = ApplicationPanel.getSearchParameter();
+                System.out.println("you entered: " + searchPam +" @ " + comboSelectedItem);
+                int x = 0;
+                for(IndividualPet pet : CombinedPet.petList)
+                {        
+                    if (pet.getShop().equals(comboSelectedItem) && pet.getType().toLowerCase().contains(searchPam.toLowerCase()))
+                    {
+                        System.out.println("We have found "+pet.getType());
+                        x++;
+                    }
+                    else
+                    {
+                        
+                    }                
+                }
+                if (x==0)
+                {
+                    System.out.println("Nope Sorry we couldn't find any " + searchPam + " at " + comboSelectedItem);
+                }
+                else
+                {}
+    }
     
     /**
      * A demo that attempts to take input from the command line through 
@@ -190,23 +214,9 @@ public class CommandLineExport {
             }
             case 16 : // 14 Refined that it only prints the matching values
             {
-                System.out.print("Please enter the shop you wish to search for: ");
-                String shopIWant = readString();
-                System.out.print("Now please enter the pet you wish to search for that is within that shop: ");
-                String petIWant  = readString();
                 
-                int x=1;
-                    for(IndividualPet pet : CombinedPet.petList) 
-                    {
-                        if (pet.getShop().equals(shopIWant) & pet.getType().toLowerCase().contains(petIWant))
-                        {
-                            System.out.println(x+". "+pet.getShop()+" does indeed have a "+pet.getType());
-                        }
-                        else
-                        {}
-                        x++;
-                    }
-            }       
+            }
+            
         }
     }
 }

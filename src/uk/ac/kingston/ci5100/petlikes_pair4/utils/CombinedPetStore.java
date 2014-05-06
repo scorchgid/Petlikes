@@ -7,7 +7,6 @@ package uk.ac.kingston.ci5100.petlikes_pair4.utils;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 public class CombinedPetStore 
 {           

@@ -66,7 +66,11 @@ public class IndividualPet implements Comparable<IndividualPet>
     public String getType() {
         return type;
     }
-
+    
+    public String getTypeSpaced() {
+        return type + " \n";
+    }
+    
     public void setType(String type) {
         this.type = type;
     }

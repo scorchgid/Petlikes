@@ -6,14 +6,9 @@ package uk.ac.kingston.ci5100.petlikes_pair4.control;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import uk.ac.kingston.ci5100.petlikes_pair4.utils.CombinedPet;
-import static uk.ac.kingston.ci5100.petlikes_pair4.utils.CombinedPet.petList;
-import uk.ac.kingston.ci5100.petlikes_pair4.view.ApplicationText;
 import uk.ac.kingston.ci5100.petlikes_pair4.utils.CombinedPetStore;
 import uk.ac.kingston.ci5100.petlikes_pair4.view.ApplicationFrame;
-import uk.ac.kingston.ci5100.petlikes_pair4.view.ApplicationPanel;
-import uk.ac.kingston.ci5100.petlikes_pair4.view.ApplicationViewerControl;
 import uk.ac.kingston.ci5100.petlikes_pair4.view.CommandLineExport;
-import uk.ac.kingston.ci5100.petlikes_pair4.view.ApplicationTable;
 
 public class ApplicationControl {
     
@@ -22,11 +17,19 @@ public class ApplicationControl {
      * sorts it and creates the viewer
      * @param args the command line arguments 
      */
+    private static ApplicationFrame a;
+    
+    public static ApplicationFrame getA() {
+        return a;
+    }
+    public static void setA(ApplicationFrame a) {
+        ApplicationControl.a = a;
+    }
+    
     public static void main(String[] args) throws FileNotFoundException, IOException, Exception {
         // TODO code application logic here
         CombinedPetStore psi = new CombinedPetStore();
         CombinedPet pet = new CombinedPet();
-        CommandLineExport cmd = new CommandLineExport();
         
         // Import CSV File
         psi.importCSV(); 
@@ -36,8 +39,12 @@ public class ApplicationControl {
         psi.sortstuff();
         pet.sortstuff();
         psi.petGrab();
+        
+        a = new ApplicationFrame();
+        
         //Create the viewer
-        ApplicationFrame a = new ApplicationFrame();
+         
+        
         //ApplicationText av = new ApplicationText(); 
         //ApplicationViewerControl avu = new ApplicationViewerControl();
         //avu.setMainView(av);
@@ -46,6 +53,7 @@ public class ApplicationControl {
         //tab.JFrame();
         
         //Print the data you want
+        CommandLineExport cmd = new CommandLineExport();
         cmd.switchDemo();
     }
 }
