@@ -27,7 +27,7 @@ public class CombinedPet {
     public void importCSV() throws FileNotFoundException, IOException, Exception
     {
         FileImport ing = new FileImport();
-        petList = ing.FileReadPet();
+        petList = ing.fileReadPet();
     }
             public void sortstuff()
     {

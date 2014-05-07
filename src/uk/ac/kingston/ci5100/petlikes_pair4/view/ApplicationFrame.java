@@ -19,6 +19,11 @@ public class ApplicationFrame extends JFrame
 {
 
     private JTabbedPane tabs; 
+    private ApplicationPanelNewPet newPet;
+
+    public ApplicationPanelNewPet getNewPet() {
+        return newPet;
+    }
     //How can I access the options to create a new tab at a later stage?
     public JTabbedPane getTabs() {
         return tabs;
@@ -38,6 +43,10 @@ public class ApplicationFrame extends JFrame
         ApplicationPanel buttona = new ApplicationPanel(CombinedPetStore.retrievePetStoreNameAsArray());
        tabs.add("Search", buttona);
        
+       //------New Pet-----------
+       newPet = new ApplicationPanelNewPet(CombinedPetStore.retrievePetStoreNameAsArray());
+       tabs.add("New Pet Entry", newPet);
+       
        //-------------add the first tab which will contain all the data on shops-------//    
        ApplicationPanel shops = new ApplicationPanel(CombinedPetStore.obtainPetStoresAsArrayForTable1(),IndividualPetStore.getPetStoreHeader());       
        tabs.add("Shops", shops);
@@ -50,7 +59,11 @@ public class ApplicationFrame extends JFrame
            ApplicationPanel pet = new ApplicationPanel(CombinedPet.getPetAsArrayForTable(demo.getShopName()),IndividualPet.getPetHeader());
            tabs.add(demo.getShopName(),pet);   
        }
-       tabs.setSelectedIndex(0);
+       
+       
+       
+       
+       
        //ApplicationPanel pets = new ApplicationPanel(CombinedPet.getPetAsArrayForTable(),IndividualPet.getPetHeader(),"ddd";
        
        //
@@ -68,6 +81,7 @@ public class ApplicationFrame extends JFrame
        //}
            
        //{tabs.addTab(i.getShopName, new ApplicationPanel(textpane))}       
+       tabs.setSelectedIndex(0);
        this.setSize(new Dimension(1000, 600));
        this.add(tabs); 
        this.setExtendedState(this.getExtendedState()| JFrame.MAXIMIZED_BOTH);

@@ -71,7 +71,7 @@ public class CombinedPetStore
     public void importCSV () throws FileNotFoundException, IOException
     {
         FileImport ing = new FileImport();
-        storeList = ing.FileReadPetStore();
+        storeList = ing.fileReadPetStore();
     }
     
     public void sortstuff()

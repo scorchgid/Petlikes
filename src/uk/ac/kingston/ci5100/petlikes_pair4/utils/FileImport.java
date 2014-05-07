@@ -23,6 +23,15 @@ public class FileImport //change tofile reader class
         return a;
     }
 
+    public BufferedReader getShopRow() {
+        return shopRow;
+    }
+
+    public BufferedReader getPetRow() {
+        return petRow;
+    }
+    private BufferedReader shopRow;
+    private BufferedReader petRow;
     public ArrayList<String> jay = new ArrayList<String>();
     
     /**
@@ -30,14 +39,14 @@ public class FileImport //change tofile reader class
      * @param file to be read
      * @return the CSV file as an array of pet stores
      */
-    ArrayList<IndividualPetStore> FileReadPetStore ()throws FileNotFoundException, IOException
+    ArrayList<IndividualPetStore> fileReadPetStore ()throws FileNotFoundException, IOException
     {
         ArrayList<IndividualPetStore> petStoreArray = new ArrayList<IndividualPetStore>();
-        BufferedReader row = new BufferedReader(new FileReader("petStoreRawDinosaur.csv"));
+        shopRow = new BufferedReader(new FileReader("petStoreRawDinosaur.csv"));
 
         String rawDataLine;
-        row.readLine();
-        while((rawDataLine = row.readLine()) != null)
+        shopRow.readLine();
+        while((rawDataLine = shopRow.readLine()) != null)
         {   
            String[] list = splitRawTest(rawDataLine);
            IndividualPetStore n= new IndividualPetStore(list[0], list[1], list[2], list[3], list[4]);
@@ -46,13 +55,13 @@ public class FileImport //change tofile reader class
         return petStoreArray;
     }
     //--------------------------------------------------------------------------------------------------------------------------------------
-    ArrayList<IndividualPet> FileReadPet ()throws FileNotFoundException, IOException, Exception
+    ArrayList<IndividualPet> fileReadPet ()throws FileNotFoundException, IOException, Exception
     {
         ArrayList<IndividualPet> petArray = new ArrayList<IndividualPet>();
-        BufferedReader row = new BufferedReader(new FileReader("petshop-pets.csv"));
+        petRow = new BufferedReader(new FileReader("petshop-pets.csv"));
         String rawDataLine;
-        petFirstLine = row.readLine();
-        while((rawDataLine = row.readLine()) != null)
+        petFirstLine = petRow.readLine();
+        while((rawDataLine = petRow.readLine()) != null)
         {   
            String[] list = splitRawTest(rawDataLine);
            IndividualPet n= new IndividualPet(list[0], list[1], list[2], list[3], list[4]);

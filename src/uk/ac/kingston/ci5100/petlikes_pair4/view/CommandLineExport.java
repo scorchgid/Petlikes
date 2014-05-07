@@ -5,11 +5,14 @@
 package uk.ac.kingston.ci5100.petlikes_pair4.view;
 
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import uk.ac.kingston.ci5100.petlikes_pair4.utils.IndividualPetStore;
 import uk.ac.kingston.ci5100.petlikes_pair4.utils.IndividualPet;
 import uk.ac.kingston.ci5100.petlikes_pair4.utils.CombinedPetStore;
 import java.util.Scanner;
+import uk.ac.kingston.ci5100.petlikes_pair4.control.ApplicationControl;
 import uk.ac.kingston.ci5100.petlikes_pair4.utils.CombinedPet;
+import uk.ac.kingston.ci5100.petlikes_pair4.utils.FileExport;
 
 public class CommandLineExport {
 
@@ -62,7 +65,7 @@ public class CommandLineExport {
      * readCommandNumber over and displays the into requested and noted below 
      * either through the command line or in the ApplicationText window 
      */
-    public void switchDemo() throws FileNotFoundException 
+    public void switchDemo() throws FileNotFoundException, IOException, Exception 
     {
         int caseNumber = readCommandNumber();
         switch (caseNumber) 
@@ -94,12 +97,6 @@ public class CommandLineExport {
                 for(IndividualPetStore demo : CombinedPetStore.storeList) {
                     System.out.println("____________________________________________");
                     System.out.println(demo.getIndividualPetStore());
-                }
-                break;
-            case 6 : //Export to TXT
-                {
-                    FileExport gui = new FileExport();
-                    gui.notepad(); 
                 }
                 break;
             case 7 : //printTextInSwingDemo
@@ -212,11 +209,23 @@ public class CommandLineExport {
                         x++;
                     }
             }
-            case 16 : // 14 Refined that it only prints the matching values
+            case 16 : 
             {
-                
+                System.out.println("Shop");
+                String shop = CommandLineExport.readString();
+                System.out.println("Type");
+                String type = CommandLineExport.readString();
+                System.out.println("Price nn.nn");
+                String price = CommandLineExport.readString();
+                System.out.println("Date ddMMyyyy");
+                String dateAcquired = CommandLineExport.readString();
+                System.out.println("Notes");
+                String notes = CommandLineExport.readString();
+                FileExport export = new FileExport();
+                export.writeToFilePet(shop, type, price, dateAcquired, notes);
             }
-            
+            case 17: //Refersh check
+                ApplicationControl.getPet().importCSV();
         }
     }
 }

@@ -15,7 +15,6 @@ import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JList;
-import javax.swing.table.TableColumn;
 
 /**
  *
@@ -23,9 +22,18 @@ import javax.swing.table.TableColumn;
  */
 public class ApplicationPanel extends JPanel {
 
+    public static JButton closeButton()
+    {
+       ApplicationPanelHandler apb = new ApplicationPanelHandler(); 
+       JButton closeButton = new JButton("Close");
+       closeButton.setActionCommand("Close");
+       closeButton.addActionListener(apb);
+       return closeButton;
+    }
+    
     private static JComboBox storeComboList;
     private static JTextField searchParameter;
-
+    
     public static String getSearchParameter() {
         return searchParameter.getText();
     }
@@ -44,8 +52,17 @@ public class ApplicationPanel extends JPanel {
     //Application Panel Just Table
     public ApplicationPanel(String[][] data, String[] colNames)
     {  
-       this.setLayout(new GridLayout());
+//     this.setLayout(new GridLayout(0,1,0,2));
+       GridLayout grid = new GridLayout(0,1,0,2);
+       grid.setVgap(6);
+       this.setLayout(grid);
+       
        JTable table = new JTable(data, colNames);
+       JScrollPane scrollPane = new JScrollPane(table);
+       table.setFillsViewportHeight(true);
+       scrollPane.setPreferredSize(new Dimension(900,800));
+       this.add(scrollPane);
+       this.add(closeButton());
        
        //table.setPreferredScrollableViewportSize(new Dimension(450, 65));
        //table.setFillsViewportHeight(true);
@@ -53,45 +70,30 @@ public class ApplicationPanel extends JPanel {
        //scrollPane = new JScrollPane(table,JScrollPane.VERTICAL_SCROLLBAR_ALWAYS,JScrollPane.HORIZONTAL_S‌​CROLLBAR_ALWAYS);
        // ApplicationFrame.getFrames().getContentPane().add( new JScrollPane( table ), BorderLayout.CENTER );
        // column.setResizable(true);
-       TableColumn column;
-       JScrollPane scrollPane = new JScrollPane(table);
-       table.setFillsViewportHeight(true);
-       scrollPane.setPreferredSize(new Dimension(900,800));
-
-       for (int i = 0; i<4; i++)
-       {
-           column = table.getColumnModel().getColumn(i);
-           if (i == 2)
-           {
-               column.setPreferredWidth(400);     
-           }
-           else
-           {
-               column.setPreferredWidth(50);
-           }
-       }
-       this.add(scrollPane);
+       //TableColumn column = new TableColumn(table.getColumnModel().getColumnCount());
     }
     
     //Application Panel Button Menu
     public ApplicationPanel (String[] listItems)
     {
-        this.setLayout(new GridLayout(5,5));
+        this.setLayout(new GridLayout(3,2));
         ApplicationPanelHandler aph = new ApplicationPanelHandler();
-        JButton closeButton = new JButton("Close");
+        
         JButton searchButton = new JButton("Search");
+        JLabel searchQuestion = new JLabel(
+                "Please select from the list the shop you wish to search from:");
 
         JLabel notice = new JLabel(
                 "Please enter the type of pet you are searching for:");
         searchParameter = new JTextField();
 
         storeComboList = new JComboBox(listItems);
-        storeComboList.setSelectedIndex(4);
+        storeComboList.setSelectedIndex(0);
+        this.add(searchQuestion);
         this.add(storeComboList);
         
         searchParameter.setPreferredSize(new Dimension(300,25));
         searchButton.setActionCommand("Search");
-        closeButton.setActionCommand("Close");
         
         this.add(notice);
         this.add(searchParameter);
@@ -100,13 +102,12 @@ public class ApplicationPanel extends JPanel {
         String comboSelectedItem = String.valueOf(comboSelectedItemAsObject);
         System.out.println(comboSelectedItem);
  */
-        searchButton.addActionListener(aph);
-        closeButton.addActionListener(aph);
         //Listen to text, submit on text entered.
+        searchButton.addActionListener(aph);
         
         //closeButton.addActionListener(new ActionListener); see above!!
+        add(closeButton());   
         add(searchButton);
-        add(closeButton);   
     }
 
     //Search results in a JList

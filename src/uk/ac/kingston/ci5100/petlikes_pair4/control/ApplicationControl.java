@@ -17,19 +17,25 @@ public class ApplicationControl {
      * sorts it and creates the viewer
      * @param args the command line arguments 
      */
-    private static ApplicationFrame a;
-    
-    public static ApplicationFrame getA() {
-        return a;
+    private static ApplicationFrame frame;
+    private static CombinedPet pet;
+    private static CombinedPetStore psi;
+    public static CombinedPet getPet() {
+        return pet;
     }
-    public static void setA(ApplicationFrame a) {
-        ApplicationControl.a = a;
+    public static CombinedPetStore getPsi() {
+        return psi;
     }
-    
+    public static ApplicationFrame getFrame() {
+        return frame;
+    }
+    public static void setFrame(ApplicationFrame a) {
+        ApplicationControl.frame = a;
+    }
     public static void main(String[] args) throws FileNotFoundException, IOException, Exception {
         // TODO code application logic here
-        CombinedPetStore psi = new CombinedPetStore();
-        CombinedPet pet = new CombinedPet();
+        psi = new CombinedPetStore();
+        pet = new CombinedPet();
         
         // Import CSV File
         psi.importCSV(); 
@@ -40,20 +46,10 @@ public class ApplicationControl {
         pet.sortstuff();
         psi.petGrab();
         
-        a = new ApplicationFrame();
-        
         //Create the viewer
+        frame = new ApplicationFrame();
          
-        
-        //ApplicationText av = new ApplicationText(); 
-        //ApplicationViewerControl avu = new ApplicationViewerControl();
-        //avu.setMainView(av);
-        
-        //ApplicationTable tab = new ApplicationTable();
-        //tab.JFrame();
-        
-        //Print the data you want
-        CommandLineExport cmd = new CommandLineExport();
-        cmd.switchDemo();
+        //Run commandline tester
+        CommandLineExport cmd = new CommandLineExport(); cmd.switchDemo();
     }
 }

@@ -2,7 +2,7 @@
  * @author k1009705(Gideon), k1258579(Charlotte)
  */
 
-package uk.ac.kingston.ci5100.petlikes_pair4.view;
+package uk.ac.kingston.ci5100.petlikes_pair4.utils;
 
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -15,7 +15,7 @@ import uk.ac.kingston.ci5100.petlikes_pair4.utils.CombinedPetStore;
 /**
  * export the list to text, just pet store names at the moment
  */
-public class FileExport {
+public class FileExportToNotepad {
      
     void notepad() throws FileNotFoundException
     {
